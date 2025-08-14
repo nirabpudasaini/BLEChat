@@ -30,15 +30,16 @@ I designed and implemented the app **end-to-end**:
 ---
 
 ## 🔄 Architecture & Data Flow  
+```
 ┌──────────────┐
 │    UI Layer  │
 │ (Jetpack Compose)
 │  - Renders state
 │  - Sends user intents
 └───────▲──────┘
-│
-│ Intents
-▼
+        │
+        │ Intents
+        ▼
 ┌──────────────┐
 │ ViewModel    │
 │ (MVI Pattern)
@@ -46,23 +47,24 @@ I designed and implemented the app **end-to-end**:
 │ - Calls Use Cases
 │ - Emits new state
 └───────▲──────┘
-│
-│
-▼
+        │
+        │
+        ▼
 ┌──────────────┐
 │ Domain Layer │
 │ - BLE Use Cases
 │ - Bluetooth state checks
 └───────▲──────┘
-│
-│
-▼
+        │
+        │
+        ▼
 ┌──────────────┐
 │ Data Layer   │
 │ - BLE APIs
 │ - Advertiser
 │ - Scanner
 └──────────────┘
+```
 
 **BLE Flow:**  
 1. User enters a message → sends **AdvertiseIntent** → ViewModel triggers BLE advertiser.  
